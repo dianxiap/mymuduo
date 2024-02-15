@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wph1.0/mymuduo/lenrn_demo/cmake_study/add.c
+stdio.h
+-
+head.h
+/home/wph1.0/mymuduo/lenrn_demo/cmake_study/head.h
+
+/home/wph1.0/mymuduo/lenrn_demo/cmake_study/div.c
+stdio.h
+-
+head.h
+/home/wph1.0/mymuduo/lenrn_demo/cmake_study/head.h
+
+/home/wph1.0/mymuduo/lenrn_demo/cmake_study/head.h
+
+/home/wph1.0/mymuduo/lenrn_demo/cmake_study/main.c
+stdio.h
+-
+head.h
+/home/wph1.0/mymuduo/lenrn_demo/cmake_study/head.h
+
+/home/wph1.0/mymuduo/lenrn_demo/cmake_study/mult.c
+stdio.h
+-
+head.h
+/home/wph1.0/mymuduo/lenrn_demo/cmake_study/head.h
+
+/home/wph1.0/mymuduo/lenrn_demo/cmake_study/sub.c
+stdio.h
+-
+head.h
+/home/wph1.0/mymuduo/lenrn_demo/cmake_study/head.h
+
