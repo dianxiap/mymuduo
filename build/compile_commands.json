@@ -1,0 +1,42 @@
+[
+{
+  "directory": "/home/wph1.0/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS   -g -std=c++11 -fPIC -g -fPIC   -o CMakeFiles/mymuduo.dir/Channel.o -c /home/wph1.0/mymuduo/Channel.cc",
+  "file": "/home/wph1.0/mymuduo/Channel.cc"
+},
+{
+  "directory": "/home/wph1.0/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS   -g -std=c++11 -fPIC -g -fPIC   -o CMakeFiles/mymuduo.dir/DefaultPoll.o -c /home/wph1.0/mymuduo/DefaultPoll.cc",
+  "file": "/home/wph1.0/mymuduo/DefaultPoll.cc"
+},
+{
+  "directory": "/home/wph1.0/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS   -g -std=c++11 -fPIC -g -fPIC   -o CMakeFiles/mymuduo.dir/EventLoop.o -c /home/wph1.0/mymuduo/EventLoop.cc",
+  "file": "/home/wph1.0/mymuduo/EventLoop.cc"
+},
+{
+  "directory": "/home/wph1.0/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS   -g -std=c++11 -fPIC -g -fPIC   -o CMakeFiles/mymuduo.dir/InetAddress.o -c /home/wph1.0/mymuduo/InetAddress.cc",
+  "file": "/home/wph1.0/mymuduo/InetAddress.cc"
+},
+{
+  "directory": "/home/wph1.0/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS   -g -std=c++11 -fPIC -g -fPIC   -o CMakeFiles/mymuduo.dir/Logger.o -c /home/wph1.0/mymuduo/Logger.cc",
+  "file": "/home/wph1.0/mymuduo/Logger.cc"
+},
+{
+  "directory": "/home/wph1.0/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS   -g -std=c++11 -fPIC -g -fPIC   -o CMakeFiles/mymuduo.dir/Poller.o -c /home/wph1.0/mymuduo/Poller.cc",
+  "file": "/home/wph1.0/mymuduo/Poller.cc"
+},
+{
+  "directory": "/home/wph1.0/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS   -g -std=c++11 -fPIC -g -fPIC   -o CMakeFiles/mymuduo.dir/TcpServer.o -c /home/wph1.0/mymuduo/TcpServer.cc",
+  "file": "/home/wph1.0/mymuduo/TcpServer.cc"
+},
+{
+  "directory": "/home/wph1.0/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS   -g -std=c++11 -fPIC -g -fPIC   -o CMakeFiles/mymuduo.dir/Timestamp.o -c /home/wph1.0/mymuduo/Timestamp.cc",
+  "file": "/home/wph1.0/mymuduo/Timestamp.cc"
+}
+]
