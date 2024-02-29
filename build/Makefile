@@ -139,6 +139,21 @@ Channel.s:
 .PHONY : Channel.s
 
 # target to build an object file
+CurrentThread.o:
+	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/CurrentThread.o
+.PHONY : CurrentThread.o
+
+# target to preprocess a source file
+CurrentThread.i:
+	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/CurrentThread.i
+.PHONY : CurrentThread.i
+
+# target to generate assembly for a file
+CurrentThread.s:
+	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/CurrentThread.s
+.PHONY : CurrentThread.s
+
+# target to build an object file
 DefaultPoll.o:
 	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/DefaultPoll.o
 .PHONY : DefaultPoll.o
@@ -152,6 +167,21 @@ DefaultPoll.i:
 DefaultPoll.s:
 	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/DefaultPoll.s
 .PHONY : DefaultPoll.s
+
+# target to build an object file
+EPollPoller.o:
+	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/EPollPoller.o
+.PHONY : EPollPoller.o
+
+# target to preprocess a source file
+EPollPoller.i:
+	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/EPollPoller.i
+.PHONY : EPollPoller.i
+
+# target to generate assembly for a file
+EPollPoller.s:
+	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/EPollPoller.s
+.PHONY : EPollPoller.s
 
 # target to build an object file
 EventLoop.o:
@@ -255,9 +285,15 @@ help:
 	@echo "... Channel.o"
 	@echo "... Channel.i"
 	@echo "... Channel.s"
+	@echo "... CurrentThread.o"
+	@echo "... CurrentThread.i"
+	@echo "... CurrentThread.s"
 	@echo "... DefaultPoll.o"
 	@echo "... DefaultPoll.i"
 	@echo "... DefaultPoll.s"
+	@echo "... EPollPoller.o"
+	@echo "... EPollPoller.i"
+	@echo "... EPollPoller.s"
 	@echo "... EventLoop.o"
 	@echo "... EventLoop.i"
 	@echo "... EventLoop.s"

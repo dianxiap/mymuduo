@@ -6,8 +6,18 @@
 },
 {
   "directory": "/home/wph1.0/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS   -g -std=c++11 -fPIC -g -fPIC   -o CMakeFiles/mymuduo.dir/CurrentThread.o -c /home/wph1.0/mymuduo/CurrentThread.cc",
+  "file": "/home/wph1.0/mymuduo/CurrentThread.cc"
+},
+{
+  "directory": "/home/wph1.0/mymuduo/build",
   "command": "/usr/bin/g++   -Dmymuduo_EXPORTS   -g -std=c++11 -fPIC -g -fPIC   -o CMakeFiles/mymuduo.dir/DefaultPoll.o -c /home/wph1.0/mymuduo/DefaultPoll.cc",
   "file": "/home/wph1.0/mymuduo/DefaultPoll.cc"
+},
+{
+  "directory": "/home/wph1.0/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS   -g -std=c++11 -fPIC -g -fPIC   -o CMakeFiles/mymuduo.dir/EPollPoller.o -c /home/wph1.0/mymuduo/EPollPoller.cc",
+  "file": "/home/wph1.0/mymuduo/EPollPoller.cc"
 },
 {
   "directory": "/home/wph1.0/mymuduo/build",
