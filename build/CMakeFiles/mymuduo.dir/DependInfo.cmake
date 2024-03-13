@@ -17,6 +17,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/wph1.0/mymuduo/Logger.cc" "/home/wph1.0/mymuduo/build/CMakeFiles/mymuduo.dir/Logger.o"
   "/home/wph1.0/mymuduo/Poller.cc" "/home/wph1.0/mymuduo/build/CMakeFiles/mymuduo.dir/Poller.o"
   "/home/wph1.0/mymuduo/Socket.cc" "/home/wph1.0/mymuduo/build/CMakeFiles/mymuduo.dir/Socket.o"
+  "/home/wph1.0/mymuduo/TcpConnection.cc" "/home/wph1.0/mymuduo/build/CMakeFiles/mymuduo.dir/TcpConnection.o"
   "/home/wph1.0/mymuduo/TcpServer.cc" "/home/wph1.0/mymuduo/build/CMakeFiles/mymuduo.dir/TcpServer.o"
   "/home/wph1.0/mymuduo/Thread.cc" "/home/wph1.0/mymuduo/build/CMakeFiles/mymuduo.dir/Thread.o"
   "/home/wph1.0/mymuduo/Timestamp.cc" "/home/wph1.0/mymuduo/build/CMakeFiles/mymuduo.dir/Timestamp.o"

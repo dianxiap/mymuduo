@@ -369,9 +369,33 @@ CMakeFiles/mymuduo.dir/Socket.o.provides: CMakeFiles/mymuduo.dir/Socket.o.requir
 CMakeFiles/mymuduo.dir/Socket.o.provides.build: CMakeFiles/mymuduo.dir/Socket.o
 
 
+CMakeFiles/mymuduo.dir/TcpConnection.o: CMakeFiles/mymuduo.dir/flags.make
+CMakeFiles/mymuduo.dir/TcpConnection.o: ../TcpConnection.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wph1.0/mymuduo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/mymuduo.dir/TcpConnection.o"
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mymuduo.dir/TcpConnection.o -c /home/wph1.0/mymuduo/TcpConnection.cc
+
+CMakeFiles/mymuduo.dir/TcpConnection.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mymuduo.dir/TcpConnection.i"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wph1.0/mymuduo/TcpConnection.cc > CMakeFiles/mymuduo.dir/TcpConnection.i
+
+CMakeFiles/mymuduo.dir/TcpConnection.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mymuduo.dir/TcpConnection.s"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wph1.0/mymuduo/TcpConnection.cc -o CMakeFiles/mymuduo.dir/TcpConnection.s
+
+CMakeFiles/mymuduo.dir/TcpConnection.o.requires:
+
+.PHONY : CMakeFiles/mymuduo.dir/TcpConnection.o.requires
+
+CMakeFiles/mymuduo.dir/TcpConnection.o.provides: CMakeFiles/mymuduo.dir/TcpConnection.o.requires
+	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/TcpConnection.o.provides.build
+.PHONY : CMakeFiles/mymuduo.dir/TcpConnection.o.provides
+
+CMakeFiles/mymuduo.dir/TcpConnection.o.provides.build: CMakeFiles/mymuduo.dir/TcpConnection.o
+
+
 CMakeFiles/mymuduo.dir/TcpServer.o: CMakeFiles/mymuduo.dir/flags.make
 CMakeFiles/mymuduo.dir/TcpServer.o: ../TcpServer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wph1.0/mymuduo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/mymuduo.dir/TcpServer.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wph1.0/mymuduo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/mymuduo.dir/TcpServer.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mymuduo.dir/TcpServer.o -c /home/wph1.0/mymuduo/TcpServer.cc
 
 CMakeFiles/mymuduo.dir/TcpServer.i: cmake_force
@@ -395,7 +419,7 @@ CMakeFiles/mymuduo.dir/TcpServer.o.provides.build: CMakeFiles/mymuduo.dir/TcpSer
 
 CMakeFiles/mymuduo.dir/Thread.o: CMakeFiles/mymuduo.dir/flags.make
 CMakeFiles/mymuduo.dir/Thread.o: ../Thread.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wph1.0/mymuduo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/mymuduo.dir/Thread.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wph1.0/mymuduo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/mymuduo.dir/Thread.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mymuduo.dir/Thread.o -c /home/wph1.0/mymuduo/Thread.cc
 
 CMakeFiles/mymuduo.dir/Thread.i: cmake_force
@@ -419,7 +443,7 @@ CMakeFiles/mymuduo.dir/Thread.o.provides.build: CMakeFiles/mymuduo.dir/Thread.o
 
 CMakeFiles/mymuduo.dir/Timestamp.o: CMakeFiles/mymuduo.dir/flags.make
 CMakeFiles/mymuduo.dir/Timestamp.o: ../Timestamp.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wph1.0/mymuduo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/mymuduo.dir/Timestamp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wph1.0/mymuduo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/mymuduo.dir/Timestamp.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mymuduo.dir/Timestamp.o -c /home/wph1.0/mymuduo/Timestamp.cc
 
 CMakeFiles/mymuduo.dir/Timestamp.i: cmake_force
@@ -456,6 +480,7 @@ mymuduo_OBJECTS = \
 "CMakeFiles/mymuduo.dir/Logger.o" \
 "CMakeFiles/mymuduo.dir/Poller.o" \
 "CMakeFiles/mymuduo.dir/Socket.o" \
+"CMakeFiles/mymuduo.dir/TcpConnection.o" \
 "CMakeFiles/mymuduo.dir/TcpServer.o" \
 "CMakeFiles/mymuduo.dir/Thread.o" \
 "CMakeFiles/mymuduo.dir/Timestamp.o"
@@ -476,12 +501,13 @@ mymuduo_EXTERNAL_OBJECTS =
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/Logger.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/Poller.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/Socket.o
+../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/TcpConnection.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/TcpServer.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/Thread.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/Timestamp.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/build.make
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wph1.0/mymuduo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX shared library ../lib/libmymuduo.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wph1.0/mymuduo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX shared library ../lib/libmymuduo.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mymuduo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -502,6 +528,7 @@ CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/InetAddress.o.requires
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/Logger.o.requires
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/Poller.o.requires
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/Socket.o.requires
+CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/TcpConnection.o.requires
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/TcpServer.o.requires
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/Thread.o.requires
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/Timestamp.o.requires
