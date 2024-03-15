@@ -3,14 +3,14 @@
 
 #include <stdlib.h>
 
-Poller* Poller::newDefaultPoller(EventLoop* loop)
+Poller* Poller::newDefaultPoller(EventLoop *loop)
 {
-    if(::getenv("MUDUM_USE_POLL"))
+    if (::getenv("MUDUO_USE_POLL"))
     {
-        return nullptr; //生成poll的实例
+        return nullptr; // 生成poll的实例
     }
-    else 
+    else
     {
-        return new EPollPoller(loop);  //new EPollPoller(loop); //生成epoll
+        return new EPollPoller(loop); // 生成epoll的实例
     }
 }

@@ -55,11 +55,11 @@ CMakeFiles/mymuduo.dir/EventLoopThread.o: ../Thread.h
 CMakeFiles/mymuduo.dir/EventLoopThread.o: ../Timestamp.h
 CMakeFiles/mymuduo.dir/EventLoopThread.o: ../noncopyable.h
 
-CMakeFiles/mymuduo.dir/EventLoopThreadPoll.o: ../EventLoopThread.h
-CMakeFiles/mymuduo.dir/EventLoopThreadPoll.o: ../EventLoopThreadPoll.cc
-CMakeFiles/mymuduo.dir/EventLoopThreadPoll.o: ../EventLoopThreadPoll.h
-CMakeFiles/mymuduo.dir/EventLoopThreadPoll.o: ../Thread.h
-CMakeFiles/mymuduo.dir/EventLoopThreadPoll.o: ../noncopyable.h
+CMakeFiles/mymuduo.dir/EventLoopThreadPool.o: ../EventLoopThread.h
+CMakeFiles/mymuduo.dir/EventLoopThreadPool.o: ../EventLoopThreadPool.cc
+CMakeFiles/mymuduo.dir/EventLoopThreadPool.o: ../EventLoopThreadPool.h
+CMakeFiles/mymuduo.dir/EventLoopThreadPool.o: ../Thread.h
+CMakeFiles/mymuduo.dir/EventLoopThreadPool.o: ../noncopyable.h
 
 CMakeFiles/mymuduo.dir/InetAddress.o: ../InetAddress.cc
 CMakeFiles/mymuduo.dir/InetAddress.o: ../InetAddress.h
@@ -94,7 +94,21 @@ CMakeFiles/mymuduo.dir/TcpConnection.o: ../TcpConnection.h
 CMakeFiles/mymuduo.dir/TcpConnection.o: ../Timestamp.h
 CMakeFiles/mymuduo.dir/TcpConnection.o: ../noncopyable.h
 
+CMakeFiles/mymuduo.dir/TcpServer.o: ../Acceptor.h
+CMakeFiles/mymuduo.dir/TcpServer.o: ../Buffer.h
+CMakeFiles/mymuduo.dir/TcpServer.o: ../Callbacks.h
+CMakeFiles/mymuduo.dir/TcpServer.o: ../Channel.h
+CMakeFiles/mymuduo.dir/TcpServer.o: ../CurrentThread.h
+CMakeFiles/mymuduo.dir/TcpServer.o: ../EventLoop.h
+CMakeFiles/mymuduo.dir/TcpServer.o: ../EventLoopThreadPool.h
+CMakeFiles/mymuduo.dir/TcpServer.o: ../InetAddress.h
+CMakeFiles/mymuduo.dir/TcpServer.o: ../Logger.h
+CMakeFiles/mymuduo.dir/TcpServer.o: ../Socket.h
+CMakeFiles/mymuduo.dir/TcpServer.o: ../TcpConnection.h
 CMakeFiles/mymuduo.dir/TcpServer.o: ../TcpServer.cc
+CMakeFiles/mymuduo.dir/TcpServer.o: ../TcpServer.h
+CMakeFiles/mymuduo.dir/TcpServer.o: ../Timestamp.h
+CMakeFiles/mymuduo.dir/TcpServer.o: ../noncopyable.h
 
 CMakeFiles/mymuduo.dir/Thread.o: ../CurrentThread.h
 CMakeFiles/mymuduo.dir/Thread.o: ../Thread.cc

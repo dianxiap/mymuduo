@@ -2,28 +2,28 @@
 #include "Logger.h"
 #include "Channel.h"
 
-#include <error.h>
+#include <errno.h>
 #include <unistd.h>
 #include <strings.h>
 
 // channel未添加到poller中
-const int kNew=-1;
-//channel已添加到poller中
-const int kAdded=1;
-//channel以从poller中删除
-const int kDeleted=2;
+const int kNew = -1;  // channel的成员index_ = -1
+// channel已添加到poller中
+const int kAdded = 1;
+// channel从poller中删除
+const int kDeleted = 2;
 
 EPollPoller::EPollPoller(EventLoop *loop)
-    :Poller(loop)
-    // 设置里EPOLL_CLOEXEC:当前进程 fork 出来的任何子进程，其都会关闭其父进程的 epoll 实例所指向的文件描述符，也就是说子进程没有访问父进程 epoll 实例的权限
-    ,epollfd_(::epoll_create1(EPOLL_CLOEXEC))
-    ,events_(kInitEventListSize)
+    : Poller(loop)
+    , epollfd_(::epoll_create1(EPOLL_CLOEXEC))
+    , events_(kInitEventListSize)  // vector<epoll_event>
 {
-    if(epollfd_<0)
+    if (epollfd_ < 0)
     {
-        LOG_FATAL("epoll_create error:%d \n",errno);
+        LOG_FATAL("epoll_create error:%d \n", errno);
     }
 }
+
 EPollPoller::~EPollPoller() 
 {
     ::close(epollfd_);
@@ -31,63 +31,70 @@ EPollPoller::~EPollPoller()
 
 Timestamp EPollPoller::poll(int timeoutMs, ChannelList *activeChannels)
 {
-    LOG_INFO("func=%s => fd total count:%lu \n",__FUNCTION__,channels_.size());
+    // 实际上应该用LOG_DEBUG输出日志更为合理
+    LOG_INFO("func=%s => fd total count:%lu \n", __FUNCTION__, channels_.size());
 
-    int numEvents=::epoll_wait(epollfd_,&*events_.begin(),static_cast<int>(events_.size()),timeoutMs);
-    int saveErrno=errno;
+    int numEvents = ::epoll_wait(epollfd_, &*events_.begin(), static_cast<int>(events_.size()), timeoutMs);
+    int saveErrno = errno;
     Timestamp now(Timestamp::now());
 
-    if(numEvents>0)
+    if (numEvents > 0)  
     {
-        LOG_INFO("%d events happend\n",numEvents);
-        fillActiveChannels(numEvents,activeChannels);
-        if(numEvents==events_.size())
+        LOG_INFO("%d events happened \n", numEvents);
+        fillActiveChannels(numEvents, activeChannels);
+        if (numEvents == events_.size())
         {
-            events_.resize(events_.size()*2);
+            events_.resize(events_.size() * 2);
         }
     }
-    else if(numEvents==0)
+    else if (numEvents == 0)
     {
-        LOG_DEBUG("%s timeout!\n",__FUNCTION__);
+        LOG_DEBUG("%s timeout! \n", __FUNCTION__);
     }
-    else 
+    else
     {
-        if(saveErrno!=errno)
+        if (saveErrno != EINTR)
         {
-            errno=saveErrno;
-            LOG_ERROR("EPOLLPOLL::poll() err!");
+            errno = saveErrno;
+            LOG_ERROR("EPollPoller::poll() err!");
         }
     }
     return now;
 }
 
-void EPollPoller::updateChannel(Channel *channel) 
+// channel update remove => EventLoop updateChannel removeChannel => Poller updateChannel removeChannel
+/**
+ *            EventLoop  =>   poller.poll
+ *     ChannelList      Poller
+ *                     ChannelMap  <fd, channel*>   epollfd
+ */ 
+void EPollPoller::updateChannel(Channel *channel)
 {
-    const int index =channel->index();
-    LOG_INFO("func=%s => fd=%d events=%d index=%d \n",__FUNCTION__,channel->fd(),channel->events(),index);
-    
-    if(index==kNew||index==kDeleted)
+    const int index = channel->index();
+    LOG_INFO("func=%s => fd=%d events=%d index=%d \n", __FUNCTION__, channel->fd(), channel->events(), index);
+
+    if (index == kNew || index == kDeleted)
     {
-        if(index==kNew)
+        if (index == kNew)
         {
-            int fd=channel->fd();
-            channels_[fd]=channel;
+            int fd = channel->fd();
+            channels_[fd] = channel;
         }
 
         channel->set_index(kAdded);
-        update(EPOLL_CTL_ADD,channel);
+        update(EPOLL_CTL_ADD, channel);
     }
-    else    // channel已经在poller上注册过了
+    else  // channel已经在poller上注册过了
     {
-        int fd=channel->fd();
-        if(channel->isNoneEvent())
+        int fd = channel->fd();
+        if (channel->isNoneEvent())
         {
-            update(EPOLL_CTL_DEL,channel);
+            update(EPOLL_CTL_DEL, channel);
             channel->set_index(kDeleted);
         }
-        else 
+        else
         {
-            update(EPOLL_CTL_MOD,channel);
+            update(EPOLL_CTL_MOD, channel);
         }
     }
 }
@@ -95,15 +102,15 @@ void EPollPoller::updateChannel(Channel *channel)
 // 从poller中删除channel
 void EPollPoller::removeChannel(Channel *channel) 
 {
-    int fd=channel->fd();
+    int fd = channel->fd();
     channels_.erase(fd);
 
-    LOG_INFO("func=%s => fd=%d\n",__FUNCTION__,fd);
-
-    int index=channel->index();
-    if(index==kAdded)
+    LOG_INFO("func=%s => fd=%d\n", __FUNCTION__, fd);
+    
+    int index = channel->index();
+    if (index == kAdded)
     {
-        update(EPOLL_CTL_DEL,channel);
+        update(EPOLL_CTL_DEL, channel);
     }
     channel->set_index(kNew);
 }
@@ -111,37 +118,35 @@ void EPollPoller::removeChannel(Channel *channel)
 // 填写活跃的连接
 void EPollPoller::fillActiveChannels(int numEvents, ChannelList *activeChannels) const
 {
-    for(int i=0;i<numEvents;i++)
+    for (int i=0; i < numEvents; ++i)
     {
-        Channel* channel=static_cast<Channel*>(events_[i].data.ptr);
+        Channel *channel = static_cast<Channel*>(events_[i].data.ptr);
         channel->set_revents(events_[i].events);
-
-        // EventLoop就拿到了它的poller给它返回的所有发生事件的channel列表了
-        activeChannels->push_back(channel);
+        activeChannels->push_back(channel); // EventLoop就拿到了它的poller给它返回的所有发生事件的channel列表了
     }
 }
 
-// 更新channel通道
+// 更新channel通道 epoll_ctl add/mod/del
 void EPollPoller::update(int operation, Channel *channel)
 {
     epoll_event event;
-    bzero(&event,sizeof event);
+    bzero(&event, sizeof event);
+    
+    int fd = channel->fd();
 
-    int fd=channel->fd();
-
-    event.events=channel->events();
-    event.data.fd=fd;
-    event.data.ptr=channel;
-
-    if(::epoll_ctl(epollfd_,operation,fd,&event)<0)
+    event.events = channel->events();
+    event.data.fd = fd; 
+    event.data.ptr = channel;
+    
+    if (::epoll_ctl(epollfd_, operation, fd, &event) < 0)
     {
-        if(operation==EPOLL_CTL_DEL)
+        if (operation == EPOLL_CTL_DEL)
         {
-            LOG_ERROR("epoll_ctl del errro:%d\n",errno);
+            LOG_ERROR("epoll_ctl del error:%d\n", errno);
         }
-        else 
+        else
         {
-            LOG_FATAL("epoll_ctl add/mod error:%d\n",errno);
+            LOG_FATAL("epoll_ctl add/mod error:%d\n", errno);
         }
     }
 }

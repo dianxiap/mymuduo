@@ -8,6 +8,12 @@
 
 class Channel;
 
+/**
+ * epoll的使用  
+ * epoll_create
+ * epoll_ctl   add/mod/del
+ * epoll_wait
+ */ 
 class EPollPoller : public Poller
 {
 public:
@@ -18,7 +24,6 @@ public:
     Timestamp poll(int timeoutMs, ChannelList *activeChannels) override;
     void updateChannel(Channel *channel) override;
     void removeChannel(Channel *channel) override;
-
 private:
     static const int kInitEventListSize = 16;
 

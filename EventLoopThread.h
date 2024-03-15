@@ -3,27 +3,27 @@
 #include "noncopyable.h"
 #include "Thread.h"
 
-#include <memory>
+#include <functional>
 #include <mutex>
 #include <condition_variable>
 #include <string>
 
 class EventLoop;
 
-class EventLoopThread: noncopyable
+class EventLoopThread : noncopyable
 {
 public:
-    using ThreadInitCallback=std::function<void(EventLoop*)>;
+    using ThreadInitCallback = std::function<void(EventLoop*)>; 
 
-    EventLoopThread(const ThreadInitCallback &cb=ThreadInitCallback(),
-        const std::string &name=std::string());
+    EventLoopThread(const ThreadInitCallback &cb = ThreadInitCallback(), 
+        const std::string &name = std::string());
     ~EventLoopThread();
 
     EventLoop* startLoop();
 private:
     void threadFunc();
 
-    EventLoop* loop_;
+    EventLoop *loop_;
     bool exiting_;
     Thread thread_;
     std::mutex mutex_;
